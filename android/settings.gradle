@@ -1,0 +1,3 @@
+rootProject.name = 'gameAriina'
+
+include ':app'
