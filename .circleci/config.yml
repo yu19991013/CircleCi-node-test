@@ -28,7 +28,7 @@ jobs:
       - run:
           name: jest tests
           command: |
-            yarn add test
+            yarn add --dev test
             mkdir -p test-results/jest
             yarn run test
           environment:
