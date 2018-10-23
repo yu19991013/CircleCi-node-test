@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  node:
+  build:
     working_directory: ~/app
     docker:
       - image: circleci/node:8
@@ -146,10 +146,10 @@ workflows:
   version: 2
   node-android-ios:
     jobs:
-      - node
+      - build
       - android:
           requires:
-            - node
+            - build
       - ios:
           requires:
-            - node
+            - build
