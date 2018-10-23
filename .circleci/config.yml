@@ -24,17 +24,11 @@ jobs:
           key: node-v1-{{ checksum "package.json" }}-{{ arch }}
           paths:
             - node_modules
-            
+
       - persist_to_workspace:
           root: ~/app
           paths:
             - node_modules
-
-      - store_test_results:
-          path: test-results
-
-      - store_artifacts:
-          path: test-results
 
   android:
     working_directory: ~/app/android
@@ -46,6 +40,8 @@ jobs:
 
       - attach_workspace:
           at: ~/app
+
+      -run: bundler init
 
       - restore_cache:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
